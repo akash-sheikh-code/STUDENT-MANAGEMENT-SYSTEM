@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta Tags for Charset and Viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title of the Page -->
+    <title>Student Management System</title>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    
+    <!-- Link to the CSS file (using Django static files) -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <!-- Navbar Brand with link to Home Page -->
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <i class="fa-solid fa-graduation-cap fa-lg"></i> Student Management System
+            </a>
+
+            <!-- Navbar Toggler (for smaller screens) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links (Menu) -->
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                    <!-- All Students Link -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}">
+                            <i class="fa-solid fa-list fa-lg"></i> All Students
+                        </a>
+                    </li>
+                    <!-- Add Student Link -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'add' %}">
+                            <i class="fa-solid fa-plus fa-lg"></i> Add Student
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <div class="container-fluid">
+        <!-- Block for Page-Specific Content -->
+        {% block body %}
+        {% endblock %}
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="mt-auto mb-4">
+        <div class="text-center">
+            <span>
+                Copyright &copy; <script>document.write(new Date().getFullYear())</script> . Akash Sheikh
+            </span>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS (Optional, for dropdowns, modals, etc.) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
